@@ -68,21 +68,22 @@ const mixer = mixitup('.portfolio-container', {
         target: '.portfolio-content'
     },
     animation: {
-        duration: 400
-    }
+        duration: 170
+    },
+    
 });
 
 // =====active portfolio-item======
 const portfolioItem = document.querySelectorAll('.portfolio-item')
 
-function activportfolio(){
+function activeportfolio(){
     if(portfolioItem){
         portfolioItem.forEach(p => p.classList.remove('active-portfolio'))
         this.classList.add('active-portfolio')
     }
 }
 
-portfolioItem.forEach(p => p.addEventListener('click', activportfolio))
+portfolioItem.forEach(p => p.addEventListener('click', activeportfolio))
 
 // ==========swiper carousel=======
 const swiper = new Swiper('.testimonial-container', {
@@ -108,9 +109,43 @@ const swiper = new Swiper('.testimonial-container', {
 });
 
 // ====gsap-animation=====
-gsap.from('.home-img', {opacity: 0, duration: 2, delay: .5, x:60})
-gsap.from('.home-data', {opacity: 0, duration: 2, delay: .8, y:25})
-gsap.from('.home-greeting, .home-name, .home-profession, .home-button', {opacity: 0, duration: 2, delay: 1, y:25, ease: 'expo.out', stagger: .2 })
-gsap.from('.nav-logo, .nav-toggle', {opacity: 0, duration: 2, delay: 1.5, y:25, ease: 'expo.out', stagger: .2 })
-gsap.from('.nav-item', {opacity: 0, duration: 2, delay: 1.8, y:25, ease: 'expo.out', stagger: .2 })
-gsap.from('.home-social', {opacity: 0, duration: 2, delay: 1.5, y:25, ease: 'expo.out', stagger: .2 })
+// gsap.from('.home-img', {opacity: 0, duration: 2, delay: .5, x:60})
+// gsap.from('.home-data', {opacity: 0, duration: 2, delay: .8, y:25})
+// gsap.from('.home-greeting, .home-name, .home-profession, .home-button', {opacity: 0, duration: 2, delay: 0.75, y:25, ease: 'expo.out', stagger: .2 })
+gsap.from('.nav-logo, .nav-toggle', {opacity: 0, duration: 2, delay: 1, y:-25, ease: 'expo.out', stagger: .2 })
+gsap.from('.nav-item', {opacity: 0, duration: 2, delay: 1, y:-25, ease: 'expo.out', stagger: .2 })
+
+
+// ----scroll-reveal-animations----
+const scroll_animations = ScrollReveal({
+    origin: 'top',
+    distance: '30px',
+    duration: 2000,
+    reset: true
+})
+
+scroll_animations.reveal(
+  ".home-data, .home-img, .about-data, .time-chart, about-description, .about-img, .qualification-title, .qualification-container, .qualification-work, .services-data, .portfolio-content, .contact-content, .contact-form, .contact-inputs, contact-input, .footer-title, .footer-description, .footer-link, footer-copy, .home-greeting, .home-name, .home-profession, .home-button",
+  {
+    interval: 14,
+  }
+);
+
+
+// prev = document.querySelector('.swiper-button-prev');
+// next = document.querySelector(".swiper-button-next");
+// content = document.querySelectorAll('.testimonial-content');
+
+// next.addEventListener('click', ()=>{
+//     console.log('next element')
+// })
+// prev.addEventListener('click', ()=>{
+//     console.log('prev element')
+// })
+
+// ============button-control============
+commentBtn = document.querySelector('.testimonial-btn')
+
+commentBtn.addEventListener('click', ()=> {
+    window.alert('comments functionality unavailable yet!')
+})
